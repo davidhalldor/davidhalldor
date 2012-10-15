@@ -1,4 +1,4 @@
-application: davidhaldlor
+application: davidhalldor
 version: 1
 runtime: python27
 api_version: 1
@@ -9,7 +9,10 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
-- url: .*
+- url: /scripts
+  static_dir: scripts
+
+- url: /.*
   script: main.app
 
 libraries:
