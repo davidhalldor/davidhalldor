@@ -20,7 +20,6 @@ import logging
 import json
 import os
 from google.appengine.ext import db
-from google.appengine.ext.webapp import template 
 
 class Data(db.Model):
     '''The data model'''
@@ -45,13 +44,13 @@ class API(webapp2.RequestHandler):
         data = Data(tag = dictonary['tag'], authorName = dictonary['authorName'])
         data.put()
 
-class MainPage(webapp2.RequestHandler):
-    def get(self):
-        path = os.path.join(os.path.dirname(__file__), 'index.html')
-        self.response.out.write(template.render(path, None))
+# class MainPage(webapp2.RequestHandler):
+#     def get(self):
+#         path = os.path.join(os.path.dirname(__file__), 'index.html')
+#         self.response.out.write(template.render(path, None))
 
 
 app = webapp2.WSGIApplication([
-    ('/', MainPage),
+    # ('/', MainPage),
     ('/api.*', API)
 ], debug=True)

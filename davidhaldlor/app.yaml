@@ -12,7 +12,11 @@ handlers:
 - url: /scripts
   static_dir: scripts
 
-- url: /.*
+- url: /
+  static_files: index.html
+  upload: index.html
+
+- url: /api.*
   script: main.app
 
 libraries:
