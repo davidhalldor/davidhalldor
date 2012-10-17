@@ -20,10 +20,40 @@ import logging
 import json
 from google.appengine.ext import db
 
-class Data(db.Model):
+class PersonalData(db.Model):
     '''The data model'''
-    tag = db.StringProperty(required=True);
-    authorName = db.StringProperty(required=True);
+    name = db.StringProperty(required=True);
+    address = db.StringProperty(required=True);
+    telePhone = db.StringProperty(required=True);
+    cellPhone = db.StringProperty(required=True);
+    email = db.StringProperty(required=True);
+    dateOfBirth = db.StringProperty(required=True);
+    placeOfBirth = db.StringProperty(required=True);
+    citizenship = db.StringProperty(required=True);
+    maritalStatus = db.StringProperty(required=True);
+    spoucesName = db.StringProperty(required=True);
+    children = db.StringProperty(required=True);
+    sex = db.StringProperty(required=True);
+    highSchool = db.StringProperty(required=True);
+    university = db.StringProperty(required=True);
+    
+    '''Returning db object to dict obj'''
+    def to_dict(self):
+        return db.to_dict(self, {'id':self.key().id()})
+
+class WorkData(db.Model):
+    '''The data model'''
+    employee = db.StringProperty(required=True);
+    status = db.StringProperty(required=True);
+    
+    '''Returning db object to dict obj'''
+    def to_dict(self):
+        return db.to_dict(self, {'id':self.key().id()})
+
+class SkillsData(db.Model):
+    '''The data model'''
+    employee = db.StringProperty(required=True);
+    status = db.StringProperty(required=True);
     
     '''Returning db object to dict obj'''
     def to_dict(self):
@@ -32,7 +62,7 @@ class Data(db.Model):
 class API(webapp2.RequestHandler):
     def get(self):
         '''Fetching 10 records from db model'''
-        data = Data.all().fetch(limit=10)
+        data = PersonalData.all().fetch(limit=1)
         #logging.info([d.to_dict() for d in data])
         '''Returning the db records as list of dictonaries for ez json conversion'''
         self.response.headers['Content-Type'] = 'application/json'
@@ -40,9 +70,22 @@ class API(webapp2.RequestHandler):
 
     def post(self):
         dictonary = json.loads(self.request.body)
-        data = Data(tag = dictonary['tag'], authorName = dictonary['authorName'])
+        data = PersonalData(name = dictonary['name'],
+                            address = dictonary['address'],
+                            telePhone = dictonary['telePhone'],
+                            cellPhone = dictonary['cellPhone'],
+                            email = dictonary['email'],
+                            dateOfBirth = dictonary['dateOfBirth'],
+                            placeOfBirth = dictonary['placeOfBirth'],
+                            citizenship = dictonary['citizenship'],
+                            maritalStatus = dictonary['maritalStatus'],
+                            spoucesName = dictonary['spoucesName'],
+                            children = dictonary['children'],
+                            sex = dictonary['sex'],
+                            highSchool = dictonary['highSchool'],
+                            university = dictonary['university'])
         data.put()
 
 app = webapp2.WSGIApplication([
-    ('/api.*', API)
+    ('/api/personal.*', API)
 ], debug=True)
