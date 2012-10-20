@@ -20,7 +20,7 @@ import logging
 import json
 from google.appengine.ext import db
 
-class PersonalData(db.Model):
+class Person(db.Model):
     '''The data model'''
     name = db.StringProperty(required=True);
     address = db.StringProperty(required=True);
@@ -34,43 +34,44 @@ class PersonalData(db.Model):
     spoucesName = db.StringProperty(required=True);
     children = db.StringProperty(required=True);
     sex = db.StringProperty(required=True);
-    highSchool = db.StringProperty(required=True);
+    college = db.StringProperty(required=True);
     university = db.StringProperty(required=True);
     
     '''Returning db object to dict obj'''
     def to_dict(self):
         return db.to_dict(self, {'id':self.key().id()})
 
-class WorkData(db.Model):
+class Employee(db.Model):
     '''The data model'''
     employee = db.StringProperty(required=True);
-    status = db.StringProperty(required=True);
+    
+    person = db.ReferenceProperty(Person,
+                                   collection_name='employees')
+
+    '''Returning db object to dict obj'''
+    def to_dict(self):
+        return db.to_dict(self, {'id':self.key().id()})
+
+class Skill(db.Model):
+    '''The data model'''
+    description = db.StringProperty(required=True);
     
     '''Returning db object to dict obj'''
     def to_dict(self):
         return db.to_dict(self, {'id':self.key().id()})
 
-class SkillsData(db.Model):
-    '''The data model'''
-    employee = db.StringProperty(required=True);
-    status = db.StringProperty(required=True);
-    
-    '''Returning db object to dict obj'''
-    def to_dict(self):
-        return db.to_dict(self, {'id':self.key().id()})
-
-class API(webapp2.RequestHandler):
+class PersonAPI(webapp2.RequestHandler):
     def get(self):
-        '''Fetching 10 records from db model'''
-        data = PersonalData.all().fetch(limit=1)
-        #logging.info([d.to_dict() for d in data])
+        '''Fetching 1 records from db model'''
+        person = Person.all().fetch(limit=1)
+        logging.info([p.to_dict() for p in person])
         '''Returning the db records as list of dictonaries for ez json conversion'''
         self.response.headers['Content-Type'] = 'application/json'
-        self.response.out.write(json.dumps([d.to_dict() for d in data]))
+        self.response.out.write(json.dumps([p.to_dict() for p in person]))
 
     def post(self):
         dictonary = json.loads(self.request.body)
-        data = PersonalData(name = dictonary['name'],
+        person = Person(name = dictonary['name'],
                             address = dictonary['address'],
                             telePhone = dictonary['telePhone'],
                             cellPhone = dictonary['cellPhone'],
@@ -82,10 +83,38 @@ class API(webapp2.RequestHandler):
                             spoucesName = dictonary['spoucesName'],
                             children = dictonary['children'],
                             sex = dictonary['sex'],
-                            highSchool = dictonary['highSchool'],
+                            college = dictonary['college'],
                             university = dictonary['university'])
-        data.put()
+        person.put()
+
+class EmployeeAPI(webapp2.RequestHandler):
+    def get(self):
+        '''Fetching 1 records from db model'''
+        person = Person.all().fetch(limit=1)
+        logging.info([p.to_dict() for p in person])
+        '''Returning the db records as list of dictonaries for ez json conversion'''
+        self.response.headers['Content-Type'] = 'application/json'
+        self.response.out.write(json.dumps([p.to_dict() for p in person]))
+
+    def post(self):
+        dictonary = json.loads(self.request.body)
+        person = Person(name = dictonary['name'],
+                            address = dictonary['address'],
+                            telePhone = dictonary['telePhone'],
+                            cellPhone = dictonary['cellPhone'],
+                            email = dictonary['email'],
+                            dateOfBirth = dictonary['dateOfBirth'],
+                            placeOfBirth = dictonary['placeOfBirth'],
+                            citizenship = dictonary['citizenship'],
+                            maritalStatus = dictonary['maritalStatus'],
+                            spoucesName = dictonary['spoucesName'],
+                            children = dictonary['children'],
+                            sex = dictonary['sex'],
+                            college = dictonary['college'],
+                            university = dictonary['university'])
+        person.put()
 
 app = webapp2.WSGIApplication([
-    ('/api/personal.*', API)
+    ('/api/person.*', PersonAPI),
+    ('/api/employee.*', EmployeeAPI)
 ], debug=True)

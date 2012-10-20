@@ -8,7 +8,7 @@
     ({
         type: "POST",
         //the url where you want to sent the userName and password to
-        url: '/api/personal',
+        url: '/api/person',
         dataType: 'json',
         async: false,
         //json object to sent to the authentication url
@@ -17,19 +17,19 @@
                                 "telePhone" : "3545871102",
                                 "cellPhone" : "3548917423",
                                 "email" : "davidhalldor@gmail.com",
-                                "dateOfBirth" : "10. January",
+                                "dateOfBirth" : "10. January, 2012",
                                 "placeOfBirth" : "Akranes Iceland",
                                 "citizenship" : "Icelandic",
                                 "maritalStatus" : "In relationship",
-                                "spoucesName" : "Elsa Alexsandersdóttir",
-                                "children" : "1",
-                                "sex" : "male",
-                                "highSchool" : "Borgarholtsskóli",
+                                "spoucesName" : "Elsa Alexandersdóttir",
+                                "children" : "One",
+                                "sex" : "Male",
+                                "college" : "Borgarholtsskóli",
                                 "university" : "Reykjavík University"
                             }),
         success: function () {
 
-        alert("Success!"); 
+        console.log("Success!"); 
         }
     })
 </script>

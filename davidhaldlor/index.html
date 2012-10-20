@@ -7,10 +7,10 @@
     <script src="/scripts/controller.js"></script>
   </head>
   <body>
-    <div ng-controller="DataListCtrl">
-        <div ng-repeat="item in items">
-          <div class="container">
-            <div class="hero-unit">
+      <div class="container">
+        <div class="hero-unit">
+          <div ng-controller="DataListCtrl">
+            <div ng-repeat="item in items">
               <h1>Curriculum Vitae </h1>
               <p>{{item.name}}</p>
               <address>
@@ -19,61 +19,64 @@
                 <abbr title="Cell Phone">P: </abbr>{{item.cellPhone}}<br>
                 <a href="mailto:">{{item.email}}</a><br>
               </address>
-            </div>
-            <div class="row">
-              <div class="span4">
-                <h2>Employment history</h2>
-                <address>
-                  University: {{item.university}}<br>
-                  Highschool: {{item.highSchool}}<br>
-                </address>
-                <h2>Education</h2>
-                <address>
-                  University: {{item.university}}<br>
-                  Highschool: {{item.highSchool}}<br>
-                </address>
-              </div>
-              <div class="span4">
-                <h2>Personal information</h2>
-                <address>
-                  Date of brith: {{item.dateOfBirth}}<br>
-                  Place of birth: {{item.placeOfBirth}}<br>
-                  Citizenship: {{item.citizenship}}<br>
-                  Martial status: {{item.maritalStatus}}<br>
-                  Spouses's name: {{item.spoucesName}}<br>
-                  Children: {{item.children}}<br>
-                  Sex: {{item.sex}}<br>
-                </address>
-                <h2>Interests</h2>
-                <address>
-                  Gaming<br>
-                  Programming<br>
-                  Technoligy<br>
-                  Flyfishing<br>
-                </address>
-              </div>
-              <div class="span4">
-                <h2>Skills</h2>
-                <address>
-                  Programming languages: {{item.university}}<br>
-                  Frameworks: {{item.highSchool}}<br>
-                </address>
-                <h2>Social media</h2>
-                <address>
-                  facebook.com<br>
-                  twitter.com<br>
-                  linkedin.com<br>
-                  google.com<br>
-                </address>
-                <h2>Code</h2>
-                <address>
-                  github.com<br>
-                  code.google.com<br>
-                </address>
-              </div>
-            </div>      
+            </div><!-- end of ng-repeat="item in items" -->
+          </div><!-- end of ng-repeat="item in items" -->
+        </div>
+        <div class="row">
+         <div class="span4">
+          <div ng-controller="DataListCtrl">
+            <div ng-repeat="item in items">
+              <h2>Personal information</h2>
+              <address>
+                Date of birth: {{item.dateOfBirth}}<br>
+                Place of birth: {{item.placeOfBirth}}<br>
+                Citizenship: {{item.citizenship}}<br>
+                Martial status: {{item.maritalStatus}}<br>
+                Spouses's name: {{item.spoucesName}}<br>
+                Children: {{item.children}}<br>
+                Sex: {{item.sex}}<br>
+              </address>
+            </div><!-- end of ng-repeat="item in items" -->
+          </div><!-- end of ng-repeat="item in items" -->
+          <h2>Interests</h2>
+          <address>
+            Gaming<br>
+            Programming<br>
+            Technoligy<br>
+            Flyfishing<br>
+          </address>
+        </div>
+         <div class="span4">
+          <h2>Employment history</h2>
+          <address>
+            Employee: {{item.employee}}<br>
+          </address>
+          <h2>Education</h2>
+          <address>
+            College: {{item.college}}<br>
+            University: {{item.university}}<br>
+          </address>
+          <h2>Skills</h2>
+          <address>
+            Programming languages: {{item.university}}<br>
+            Frameworks: {{item.highSchool}}<br>
+          </address>
+        </div>
+          <div class="span4">
+            <h2>Code</h2>
+            <address>
+              github.com<br>
+              code.google.com<br>
+            </address>
+            <h2>Social media</h2>
+            <address>
+              facebook.com<br>
+              twitter.com<br>
+              linkedin.com<br>
+              google.com<br>
+            </address>
           </div>
+        </div>      
       </div>
-    </div>
   </body>
 </html>
