@@ -9,7 +9,7 @@
   <body>
     <div class="jumbotron">
       <div class="container">
-          <div ng-controller="DataListCtrl">
+          <div ng-controller="PersonListCtrl">
             <div ng-repeat="item in items">
               <h1>Curriculum Vitae </h1>
               <p>{{item.name}}</p>
@@ -26,7 +26,7 @@
         <div class="container">
             <div class="row">
              <div class="col-md-4">
-              <div ng-controller="DataListCtrl">
+              <div ng-controller="PersonListCtrl">
                 <div ng-repeat="item in items">
                   <h2>Personal information</h2>
                   <address>
@@ -49,20 +49,28 @@
               </address>
             </div>
              <div class="col-md-4">
-              <h2>Employment history</h2>
-              <address>
-                Employee: {{item.employee}}<br>
-              </address>
-              <h2>Education</h2>
-              <address>
-                College: {{item.college}}<br>
-                University: {{item.university}}<br>
-              </address>
-              <h2>Skills</h2>
-              <address>
-                Programming languages: {{item.university}}<br>
-                Frameworks: {{item.highSchool}}<br>
-              </address>
+              <div ng-controller="EmployeeListCtrl">
+                <div ng-repeat="item in items">
+                 <h2>Employment history</h2>
+                  <address>
+                    Employee: {{item.name}}<br>
+                  </address>
+                </div>
+              </div>
+              <div ng-controller="EmployeeListCtrl">
+                <div ng-repeat="item in items">
+                  <h2>Education</h2>
+                  <address>
+                    College: {{item.college}}<br>
+                    University: {{item.university}}<br>
+                  </address>
+                  <h2>Skills</h2>
+                  <address>
+                    Programming languages: {{item.university}}<br>
+                    Frameworks: {{item.college}}<br>
+                  </address>
+                </div>
+              </div>
             </div>
               <div class="col-md-4">
                 <h2>Code</h2>
