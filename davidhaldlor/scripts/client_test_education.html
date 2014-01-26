@@ -8,12 +8,16 @@
     ({
         type: "POST",
         //the url where you want to sent the userName and password to
-        url: '/api/employee',
+        url: '/api/education',
         dataType: 'json',
         async: false,
         //json object to sent to the authentication url
-        data: JSON.stringify({"name":"Síminn hf.",
-                                "person" : "Davíð Halldór Lúðvíksson" }),
+        data: JSON.stringify({"name":"Borgarholtsskóli.",
+                                "fromDate" : "2001",
+                                "toDate" : "2003",
+                                "link" : "http://www.bhs.is/",
+                                "status" : "Information Technology"
+        }),
         success: function () {
 
         console.log("Success!");

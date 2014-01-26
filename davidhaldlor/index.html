@@ -1,35 +1,38 @@
 <!doctype html>
 <html ng-app>
-  <head>
+<head>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular-resource.min.js"></script>
+    <script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
     <script src="/scripts/controller.js"></script>
-  </head>
-  <body>
-    <div class="jumbotron">
-      <div class="container">
-          <div ng-controller="PersonListCtrl">
+</head>
+<body>
+<div class="jumbotron">
+    <div class="container">
+        <div ng-controller="PersonListCtrl">
+            <h1>Curriculum Vitae </h1>
+
             <div ng-repeat="item in items">
-              <h1>Curriculum Vitae </h1>
-              <p>{{item.name}}</p>
-              <address>
-                {{item.address}}<br>
-                <abbr title="Phone">P: </abbr>{{item.telePhone}}<br>
-                <abbr title="Cell Phone">P: </abbr>{{item.cellPhone}}<br>
-                <a href="mailto:">{{item.email}}</a><br>
-              </address>
-            </div><!-- end of ng-repeat="item in items" -->
-          </div><!-- end of ng-repeat="item in items" -->
+
+                <p>{{item.name}}</p>
+                <address>
+                    {{item.address}}<br>
+                    <abbr title="Phone">P: </abbr>{{item.telePhone}}<br>
+                    <abbr title="Cell Phone">P: </abbr>{{item.cellPhone}}<br>
+                    <a ng-href="mailto:{{item.email}}">davidhalldor@gmail.com</a><br>
+                </address>
+            </div>
+            <!-- end of ng-repeat="item in items" -->
         </div>
-      </div>
-        <div class="container">
-            <div class="row">
-             <div class="col-md-4">
-              <div ng-controller="PersonListCtrl">
+        <!-- end of ng-repeat="item in items" -->
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div ng-controller="PersonListCtrl">
+                <h2>Personal information</h2>
+
                 <div ng-repeat="item in items">
-                  <h2>Personal information</h2>
-                  <address>
                     Date of birth: {{item.dateOfBirth}}<br>
                     Place of birth: {{item.placeOfBirth}}<br>
                     Citizenship: {{item.citizenship}}<br>
@@ -37,57 +40,57 @@
                     Spouses's name: {{item.spoucesName}}<br>
                     Children: {{item.children}}<br>
                     Sex: {{item.sex}}<br>
-                  </address>
-                </div><!-- end of ng-repeat="item in items" -->
-              </div><!-- end of ng-repeat="item in items" -->
-              <h2>Interests</h2>
-              <address>
-                Gaming<br>
-                Programming<br>
-                Technoligy<br>
-                Flyfishing<br>
-              </address>
-            </div>
-             <div class="col-md-4">
-              <div ng-controller="EmployeeListCtrl">
-                <div ng-repeat="item in items">
-                 <h2>Employment history</h2>
-                  <address>
-                    Employee: {{item.name}}<br>
-                  </address>
                 </div>
-              </div>
-              <div ng-controller="EmployeeListCtrl">
-                <div ng-repeat="item in items">
-                  <h2>Education</h2>
-                  <address>
-                    College: {{item.college}}<br>
-                    University: {{item.university}}<br>
-                  </address>
-                  <h2>Skills</h2>
-                  <address>
-                    Programming languages: {{item.university}}<br>
-                    Frameworks: {{item.college}}<br>
-                  </address>
-                </div>
-              </div>
+                <!-- end of ng-repeat="item in items" -->
             </div>
-              <div class="col-md-4">
+            <!-- end of ng-repeat="item in items" -->
+            <div ng-controller="InterestListCtrl">
+                <h2>Interests</h2>
+
+                <div ng-repeat="item in items">
+                    {{item.description}}<br>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div ng-controller="EmployeeListCtrl">
+                <h2>Employment history</h2>
+
+                <div ng-repeat="item in items">
+                    {{item.status}} at <a ng-href="{{item.link}}">{{item.name}}</a> from {{item.fromDate}} to {{item.toDate}}<br>
+                </div>
+            </div>
+            <div ng-controller="EducationListCtrl">
+                <h2>Education</h2>
+
+                <div ng-repeat="item in items">
+                    {{item.status}} at <a ng-href="{{item.link}}">{{item.name}}</a> from {{item.fromDate}} to {{item.toDate}}<br>
+                </div>
+            </div>
+            <div ng-controller="SkillListCtrl">
+                <h2>Skills</h2>
+
+                <div ng-repeat="item in items">
+                    {{item.description}}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div ng-controller="CodeListCtrl">
                 <h2>Code</h2>
-                <address>
-                  github.com<br>
-                  code.google.com<br>
-                </address>
-                <h2>Social media</h2>
-                <address>
-                  facebook.com<br>
-                  twitter.com<br>
-                  linkedin.com<br>
-                  google.com<br>
-                </address>
-              </div>
+                <div ng-repeat="item in items">
+                    <a ng-href="{{item.link}}">{{item.name}}</a>
+                </div>
             </div>
-         </div>
-      </div>
-  </body>
+            <div ng-controller="SocialListCtrl">
+                <h2>Social media</h2>
+                <div ng-repeat="item in items">
+                    <a ng-href="{{item.link}}">{{item.name}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
 </html>

@@ -44,12 +44,39 @@ class Person(db.Model):
         return db.to_dict(self, {'id': self.key().id()})
 
 
+class Interest(db.Model):
+    '''The data model'''
+    description = db.StringProperty(required=True);
+
+    '''Returning db object to dict obj'''
+
+    def to_dict(self):
+        return db.to_dict(self, {'id': self.key().id()})
+
+
 class Employee(db.Model):
     '''The data model'''
     name = db.StringProperty(required=True);
+    fromDate = db.StringProperty(required=True);
+    toDate = db.StringProperty(required=True);
+    link = db.StringProperty();
+    status = db.StringProperty(required=True);
+    #person = db.ReferenceProperty(Person,
+    #                              collection_name='employees')
 
-    person = db.ReferenceProperty(Person,
-                                  collection_name='employees')
+    '''Returning db object to dict obj'''
+
+    def to_dict(self):
+        return db.to_dict(self, {'id': self.key().id()})
+
+
+class Education(db.Model):
+    '''The data model'''
+    name = db.StringProperty(required=True);
+    fromDate = db.StringProperty(required=True);
+    toDate = db.StringProperty(required=True);
+    link = db.StringProperty();
+    status = db.StringProperty(required=True);
 
     '''Returning db object to dict obj'''
 
@@ -60,6 +87,28 @@ class Employee(db.Model):
 class Skill(db.Model):
     '''The data model'''
     description = db.StringProperty(required=True);
+
+    '''Returning db object to dict obj'''
+
+    def to_dict(self):
+        return db.to_dict(self, {'id': self.key().id()})
+
+
+class Code(db.Model):
+    '''The data model'''
+    name = db.StringProperty(required=True);
+    link = db.StringProperty();
+
+    '''Returning db object to dict obj'''
+
+    def to_dict(self):
+        return db.to_dict(self, {'id': self.key().id()})
+
+
+class Social(db.Model):
+    '''The data model'''
+    name = db.StringProperty(required=True);
+    link = db.StringProperty();
 
     '''Returning db object to dict obj'''
 
@@ -95,10 +144,27 @@ class PersonAPI(webapp2.RequestHandler):
         person.put()
 
 
+class InterestAPI(webapp2.RequestHandler):
+    def get(self):
+        '''Fetching 1 records from db model'''
+        interest = Interest.all().fetch(limit=10)
+        logging.info([p.to_dict() for p in interest])
+        '''Returning the db records as list of dictonaries for ez json conversion'''
+        self.response.headers['Content-Type'] = 'application/json'
+        self.response.out.write(json.dumps([p.to_dict() for p in interest]))
+
+    def post(self):
+        dictonary = json.loads(self.request.body)
+        interest = Interest(description=dictonary['description'])
+        interest.put()
+
+
 class EmployeeAPI(webapp2.RequestHandler):
     def get(self):
         '''Fetching 1 records from db model'''
         employee = Employee.all().fetch(limit=1)
+        #for e in employee:
+        #    logging.info(e.name.__dict__)
         logging.info([e.to_dict() for e in employee])
         '''Returning the db records as list of dictonaries for ez json conversion'''
         self.response.headers['Content-Type'] = 'application/json'
@@ -106,15 +172,89 @@ class EmployeeAPI(webapp2.RequestHandler):
 
     def post(self):
         dictonary = json.loads(self.request.body)
-        employee = Employee(name=dictonary['name'])
-        q = Person.all()
-        q.filter('name =', dictonary['person'])
-        person = q.get()
-        employee.person = person
+        employee = Employee(name=dictonary['name'],
+                            fromDate=dictonary['fromDate'],
+                            toDate=dictonary['toDate'],
+                            link=dictonary['link'],
+                            status=dictonary['status'])
+        #q = Person.all()
+        #q.filter('name =', dictonary['person'])
+        #person = q.get()
+        #employee.person = person
         employee.put()
 
 
+class EducationAPI(webapp2.RequestHandler):
+    def get(self):
+        '''Fetching 1 records from db model'''
+        education = Education.all().fetch(limit=10)
+        logging.info([p.to_dict() for p in education])
+        '''Returning the db records as list of dictonaries for ez json conversion'''
+        self.response.headers['Content-Type'] = 'application/json'
+        self.response.out.write(json.dumps([p.to_dict() for p in education]))
+
+    def post(self):
+        dictonary = json.loads(self.request.body)
+        education = Education(name=dictonary['name'],
+                              fromDate=dictonary['fromDate'],
+                              toDate=dictonary['toDate'],
+                              link=dictonary['link'],
+                              status=dictonary['status'])
+        education.put()
+
+
+class SkillAPI(webapp2.RequestHandler):
+    def get(self):
+        '''Fetching 1 records from db model'''
+        skill = Skill.all().fetch(limit=10)
+        logging.info([p.to_dict() for p in skill])
+        '''Returning the db records as list of dictonaries for ez json conversion'''
+        self.response.headers['Content-Type'] = 'application/json'
+        self.response.out.write(json.dumps([p.to_dict() for p in skill]))
+
+    def post(self):
+        dictonary = json.loads(self.request.body)
+        skill = Skill(description=dictonary['description'])
+        skill.put()
+
+
+class CodeAPI(webapp2.RequestHandler):
+    def get(self):
+        '''Fetching 1 records from db model'''
+        code = Code.all().fetch(limit=10)
+        logging.info([p.to_dict() for p in code])
+        '''Returning the db records as list of dictonaries for ez json conversion'''
+        self.response.headers['Content-Type'] = 'application/json'
+        self.response.out.write(json.dumps([p.to_dict() for p in code]))
+
+    def post(self):
+        dictonary = json.loads(self.request.body)
+        code = Code(name=dictonary['name'],
+                      link=dictonary['link'],)
+        code.put()
+
+
+class SocialAPI(webapp2.RequestHandler):
+    def get(self):
+        '''Fetching 1 records from db model'''
+        social = Social.all().fetch(limit=10)
+        logging.info([p.to_dict() for p in social])
+        '''Returning the db records as list of dictonaries for ez json conversion'''
+        self.response.headers['Content-Type'] = 'application/json'
+        self.response.out.write(json.dumps([p.to_dict() for p in social]))
+
+    def post(self):
+        dictonary = json.loads(self.request.body)
+        social = Social(name=dictonary['name'],
+                      link=dictonary['link'],)
+        social.put()
+
 app = webapp2.WSGIApplication([
                                   ('/api/person.*', PersonAPI),
-                                  ('/api/employee.*', EmployeeAPI)
+                                  ('/api/employee.*', EmployeeAPI),
+                                  ('/api/interest.*', InterestAPI),
+                                  ('/api/education.*', EducationAPI),
+                                  ('/api/skill.*', SkillAPI),
+                                  ('/api/code.*', CodeAPI),
+                                  ('/api/social.*', SocialAPI)
                               ], debug=True)

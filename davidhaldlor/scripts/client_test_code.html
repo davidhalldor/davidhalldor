@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<script>
+    $.ajax
+    ({
+        type: "POST",
+        //the url where you want to sent the userName and password to
+        url: '/api/code',
+        dataType: 'json',
+        async: false,
+        //json object to sent to the authentication url
+        data: JSON.stringify({"name":"Code Google",
+            "link" : "https://code.google.com/u/114079677559472358936/"
+        }),
+        success: function () {
+
+            console.log("Success!");
+        }
+    })
+</script>
+</body>
+</html>
