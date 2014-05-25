@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04675903-6d69-4cfe-96e6-06de58f78914" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Google_App_Engine_SDK.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Google_App_Engine_SDK.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/davidhalldor.iml" afterPath="$PROJECT_DIR$/.idea/davidhalldor.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="D:\Documents\GitHub\davidhalldor\davidhaldlor\.travis.yml" afterPath="$PROJECT_DIR$/.travis.yml" />
     </list>
     <ignored path="davidhalldor.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -505,7 +502,11 @@
       <created>1401045075610</created>
       <updated>1401045075610</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Færði .travis.yml í niður í root folder.">
+      <created>1401048577808</created>
+      <updated>1401048577808</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -550,7 +551,8 @@
     <MESSAGE value="Nýtt app engine útgáfunúmer." />
     <MESSAGE value="Vefurinn nánast tilbúinn." />
     <MESSAGE value="Bætti við Travis CI og uppfærði AngularJS og Bootstrap" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bætti við Travis CI og uppfærði AngularJS og Bootstrap" />
+    <MESSAGE value="Færði .travis.yml í niður í root folder." />
+    <option name="LAST_COMMIT_MESSAGE" value="Færði .travis.yml í niður í root folder." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
