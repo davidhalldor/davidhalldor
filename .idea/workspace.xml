@@ -32,7 +32,7 @@
       <file leaf-file-name=".travis.yml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="20" selection-start="200" selection-end="200" vertical-scroll-proportion="0.17" vertical-offset="0" max-vertical-offset="600">
+            <state line="10" column="39" selection-start="340" selection-end="340" vertical-scroll-proportion="0.28333333" vertical-offset="0" max-vertical-offset="600">
               <folding />
             </state>
           </provider>
@@ -542,7 +542,11 @@
       <created>1401049253412</created>
       <updated>1401049253412</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Breytti build scriptunni.">
+      <created>1401051426531</created>
+      <updated>1401051426531</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -763,7 +767,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="20" selection-start="200" selection-end="200" vertical-scroll-proportion="0.17" vertical-offset="0" max-vertical-offset="600">
+        <state line="10" column="39" selection-start="340" selection-end="340" vertical-scroll-proportion="0.28333333" vertical-offset="0" max-vertical-offset="600">
           <folding />
         </state>
       </provider>
