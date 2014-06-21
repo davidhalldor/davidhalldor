@@ -1,0 +1,27 @@
+application: davidhalldor
+version: 6
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /scripts
+  static_dir: scripts
+
+- url: /images
+  static_dir: images
+
+- url: /
+  static_files: index.html
+  upload: index.html
+
+- url: /api.*
+  script: main.app
+
+libraries:
+- name: webapp2
+  version: "2.5.2"
