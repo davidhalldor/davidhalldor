@@ -1,0 +1,65 @@
+==================================================================
+https://keybase.io/davidhalldor
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://davidhalldor.com
+  * I am davidhalldor (https://keybase.io/davidhalldor) on keybase.
+  * I have a public key with fingerprint 0F6B 81DC DCDA 54F2 C81C  F69F F219 8A80 D350 933C
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "0f6b81dcdcda54f2c81cf69ff2198a80d350933c",
+            "host": "keybase.io",
+            "key_id": "f2198a80d350933c",
+            "uid": "927a9c94d1b4827ca6e8b4a0515b5f00",
+            "username": "davidhalldor"
+        },
+        "service": {
+            "hostname": "davidhalldor.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1403876693,
+    "expire_in": 157680000,
+    "prev": "ae81858798283fd7f840bd87709923c39af7df2d9963908e301c70e6d8b5aad9",
+    "seqno": 6,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v0.1.22
+Comment: https://keybase.io/crypto
+
+yMHxAnicbZFfSBxHHMf3jNZ4VVCI2BppcLHGkOO6f253Z476IA29SimmNMUErefs
+7sy59W733Ns7z6rlDIVqrQ/FUhEbgg8aUCyGXNqHEr2ID4mm9EVQ2xhbKQix1GBe
+UrDgrDRvzjwM8/t+vt/fDL/lklOM1zMa/PHe+s3FPz2ruX+TzEdzyY97WdXSe9hg
+L9uJjw9imBFsx23DdNggyxFZBbyu0Y2kABE0wGtEhoQIPAQIcLoocVAUNdbHdlgJ
+10FjVJTAfsOiNXoJGzqtnsAnjwUoKAhqMKDzagAIioZkDNQA4iReUiXCcS6YwLaJ
+YpjSOkoZegeKRnXLZvt9LFVShkaV3uP2J1B+zYrRjLhtOZZmRana4TjxoGt2euIu
+3Y3V8P85YdUwdfp/akhhO2FYJhvkKak5hhvMBzgRKLIMRR+L03HDxmHDJSRFBhxd
+bhucopEIAx5IQIFAACLRFQICnKoDReEgFERNhIgoOhF0CGURcgCLHK8pHJZ1oEoI
+6ZD2T+Au02KDMn0mitDIhBExkZO0Mdu/lGvNZzxe5pWCPHeCjLeo9OVcG/tOM9lQ
+7fOz3aH3t+9/nt8S3LHm26o8X3s36qrW7z77/tJgZXSqntz+Nhsq2/8wW3QOFswO
+N5Ytky+qy/+ItR7UZ75MNAw82Jw/X/NZZuFK1tf5wepWnr9589Gd8jnPe1er2o3t
+XHvD2/wFYlY23Zr+Z+83rfSr11G85PfRitxsfC/TPp1hni7ugvGK/oPJ/b6mmieR
+JfYbiZsoCwlnfj0sXBv7uc4OTPy0E275Ybzx0IqthZdfI96tscf1f828MVQ4M3Bx
+qZlcu/HdyicFzKS/a3HFHHuhlKQ32mLFf7/z7uVibURqePPT3ZHiyesPf1lwaofS
+r4L0W6PVRZGFvsH/poaPAEtPD9o=
+=r4fA
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/davidhalldor
+
+==================================================================
