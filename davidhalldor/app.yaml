@@ -1,5 +1,5 @@
 application: davidhalldor
-version: 8
+version: 9
 runtime: python27
 api_version: 1
 threadsafe: yes
@@ -12,12 +12,19 @@ handlers:
 - url: /scripts
   static_dir: scripts
 
+- url: /bower_components
+  static_dir: bower_components
+
 - url: /images
   static_dir: images
 
 - url: /
   static_files: index.html
   upload: index.html
+
+- url: /keybase.txt
+  static_files: keybase.txt
+  upload: keybase.txt
 
 - url: /api.*
   script: main.app
