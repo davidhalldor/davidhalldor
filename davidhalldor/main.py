@@ -6,7 +6,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+# http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -162,7 +162,7 @@ class InterestAPI(webapp2.RequestHandler):
 class EmployeeAPI(webapp2.RequestHandler):
     def get(self):
         # Fetching 1 records from db model
-        employee = Employee.all().fetch(limit=1)
+        employee = Employee.all().fetch(limit=10)
         #for e in employee:
         #    logging.info(e.name.__dict__)
         logging.info([e.to_dict() for e in employee])

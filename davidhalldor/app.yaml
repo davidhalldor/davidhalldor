@@ -1,5 +1,5 @@
 application: davidhalldor
-version: 9
+version: 10
 runtime: python27
 api_version: 1
 threadsafe: yes
@@ -25,6 +25,10 @@ handlers:
 - url: /keybase.txt
   static_files: keybase.txt
   upload: keybase.txt
+
+- url: /robots.txt
+  static_files: robots.txt
+  upload: robots.txt
 
 - url: /api.*
   script: main.app
